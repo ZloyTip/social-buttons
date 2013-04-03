@@ -142,12 +142,14 @@
 		$images = $(this.config.selectors.shareImages, $parent);
 
 		this.title = $title.text();
-		if(this.config.forceAlternativeTitle) {
-			this.title = this.config.alternativeTitle;
-		} else if($title.length == 0 && this.config.alternativeTitle) {
-			this.title = this.config.alternativeTitle;
-		} else {
-			this.title = d.title;
+		if(!this.title) {
+			if(this.config.forceAlternativeTitle) {
+				this.title = this.config.alternativeTitle;
+			} else if($title.length == 0 && this.config.alternativeTitle) {
+				this.title = this.config.alternativeTitle;
+			} else {
+				this.title = d.title;
+			}
 		}
 
 	    if($summary.length > 0 & !this.config.forceAlternativeSummary) {
